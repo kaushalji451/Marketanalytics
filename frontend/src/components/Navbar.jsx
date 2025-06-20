@@ -8,8 +8,8 @@ const Navbar = () => {
   const logout = useLogout();
   const [islogin, setIsLogin] = useState(false);
   const [openDropDown, setopenDropDown] = useState(false);
-  
-    const { isLoggedIn, loading } = useContext(AuthContext);
+
+  const { isLoggedIn, loading } = useContext(AuthContext);
   let handleDropDown = () => {
     if (openDropDown === false) {
       setopenDropDown(true);
@@ -19,14 +19,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if(isLoggedIn){
+    if (isLoggedIn) {
       setIsLogin(true);
-    }else{
+    } else {
       setIsLogin(false);
     }
   }, [isLoggedIn]);
-  
-  
+
   return (
     <div className="py-4 flex border-b border-slate-200 bg-white justify-between px-10 items-center">
       <div className="">
@@ -61,6 +60,13 @@ const Navbar = () => {
                     <button onClick={logout}>Logout</button>
                   </li>
                 )}
+                <li className="px-10 border-b border-slate-400 py-1">
+                  <a
+                    href="https://drive.google.com/file/d/18TpbYsAK-x_Ggvc9HRJ0TNaGEmFw-a9j/view?usp=sharing"
+                  >
+                    Documentation
+                  </a>
+                </li>
               </ul>
             )}
           </div>
