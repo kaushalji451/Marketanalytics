@@ -22,12 +22,12 @@ const Signup = () => {
     });
     let res = await data.json();
     if (res.token) {
-      alert("Signup successful");
-      Cookies.set("token", res.token, { expires: 1 }); // 1 day
-      Cookies.set("email", res.email, { expires: 1 });
+      alert("Signup successful know you can login");
+      await Cookies.set("token", res.token, { expires: 1 }); // 1 day
+      await Cookies.set("email", res.email, { expires: 1 });
 
       console.log(res);
-      navigate("/dashboard");
+      navigate("/login");
       setformData({
         email: "",
         password: "",
@@ -39,10 +39,10 @@ const Signup = () => {
 
   return (
     <div>
-      <section className="bg-gray-50 dark:bg-white">
-        <Navbar/>
+      <section className="bg-gray-200">
+        <Navbar />
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[90vh] lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 text-black dark:border-gray-700">
+          <div className="w-full bg-white rounded-lg shadow border border-slate-400 md:mt-0 sm:max-w-md xl:p-0 text-black ">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl text-black">
                 Create a new account

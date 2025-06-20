@@ -37,7 +37,7 @@ const Rbchart = ({ data }) => {
   return (
     <div className="pb-1">
       <h1 className="font-bold text-center text-2xl pt-4">Conversions</h1>
-      <div className="w-full h-[345px]">
+      <div className="w-full h-[300px]">
         {" "}
         {/* Set height via a wrapper div */}
         <ResponsiveContainer width="100%" height="100%">

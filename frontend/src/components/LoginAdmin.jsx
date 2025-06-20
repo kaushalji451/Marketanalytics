@@ -16,7 +16,7 @@ const LoginAdmin = () => {
     }
   };
 
- let handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
     if (!passcode) {
       alert("Please enter the passcode");
@@ -25,12 +25,10 @@ const LoginAdmin = () => {
     if (passcode !== import.meta.env.VITE_ADMIN_PASSCODE) {
       alert("Incorrect passcode");
       return;
-    }
-    else{
+    } else {
       alert("Passcode is correct, Know you can login to the admin panel");
     }
-  }
-
+  };
 
   return (
     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
@@ -59,10 +57,15 @@ const LoginAdmin = () => {
       </div>
       <button
         type="button"
-        className="text-black border border-slate-400 font-medium rounded-lg text-sm px-5 py-2.5 w-full text-center me-2 mb-2"
+        className="text-black border border-slate-400 font-medium rounded-lg text-sm px-5 py-1 w-full text-center me-2 mb-2 flex justify-center items-center gap-2 text-lg"
         onClick={handleClick}
       >
-        Sign in
+        <lord-icon
+          src="https://cdn.lordicon.com/eziplgef.json"
+          trigger="hover"
+          // style="width:250px;height:250px"
+        ></lord-icon>
+        Sign in with google
       </button>
 
       <p className="text-sm font-light text-black">

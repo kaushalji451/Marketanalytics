@@ -36,7 +36,7 @@ const ReachImpChart = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="w-full h-[400px] bg-white rounded p-4 shadow-md">
+    <div className="w-full h-[450px] bg-white rounded p-4 pb-10 max-sm:pb-20 shadow-md">
       <h2 className="text-xl font-bold mb-4 text-center">
         Platform-wise Reach & Impressions
       </h2>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import Footer from "../components/Footer";
 const metricsData = [
   {
     id: "roi",
@@ -58,9 +59,9 @@ const Home = () => {
     setMounted(true);
   }, []);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <Navbar />
-      <main className="min-h-[83vh] bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <main className="min-h-[83vh] bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <header className="max-w-3xl text-center mb-10">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
             Market Analytics
@@ -107,9 +108,7 @@ const Home = () => {
         </section>
       </main>
       {/* Footer */}
-      <footer className="text-center bg-white py-5 border-t text-sm text-gray-500">
-        © 2025 Innate Gamma — Your Career, Elevated.
-      </footer>
+     <Footer/>
     </div>
   );
 };

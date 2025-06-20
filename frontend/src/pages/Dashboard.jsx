@@ -8,6 +8,7 @@ import Fricc from "../components/Fricc";
 import Navbar from "../components/Navbar";
 import Cookie from "js-cookie";
 import  {useNavigate} from "react-router-dom";
+import Footer from "../components/Footer";
 const Dashboard = () => {
   const navigate = useNavigate();
   const [data, setdata] = useState([]);
@@ -138,54 +139,49 @@ const Dashboard = () => {
       {/* navbar */}
       <Navbar />
 
-      {/* main */}
-      <div>
-        <div className=" w-full h-[90vh]">
-          <div className="border-b border-slate-400 py-6 h-10 flex items-center justify-between px-5">
-            <h1>Date-01.07.2024 - 13.06.2025</h1>
-            <div>
-              <div className="flex flex-wrap gap-3 items-center  p-3 rounded-md ">
-                <input
-                  type="date"
-                  value={filters.date}
-                  onChange={(e) =>
-                    setFilters({ ...filters, date: e.target.value })
-                  }
-                  className="border border-slate-300 rounded-md px-3 py-1 text-sm"
-                  placeholder="Applied On"
-                />
-                <select
-                  name=""
-                  id=""
-                  className="border rounded-sm p-1 border-slate-400  "
-                  value={filters.platform}
-                  onChange={(e) =>
-                    setFilters({ ...filters, platform: e.target.value })
-                  }
-                >
-                  <option value="">platform</option>
-                  <option value="facebook">Facebook</option>
-                  <option value="instagram">Instagram</option>
-                  <option value="linkedin">Linkedin</option>
-                </select>
+       <div className="w-full min-h-screen">
+    {/* Filter Section */}
+    <div className="border-b border-slate-400 py-1 flex flex-col gap-4 md:flex-row md:items-center md:justify-between px-5">
+      {/* <h1 className="text-sm md:text-base">Date - 01.07.2024 to 13.06.2025</h1> */}
 
-                <button
-                  disabled={loading}
-                  onClick={applyFilters}
-                  className="border px-3 py-1 rounded-md text-sm bg-blue-50"
-                >
-                  {!loading ? "Apply Filters" : "Filterin g"}
-                </button>
+      <div className="flex flex-wrap gap-3 items-center p-3 rounded-md">
+        <input
+          type="date"
+          value={filters.date}
+          onChange={(e) => setFilters({ ...filters, date: e.target.value })}
+          className="border border-slate-300 rounded-md px-3 py-1 text-sm"
+          placeholder="Applied On"
+        />
 
-                <button
-                  onClick={resetFilters}
-                  className="border px-3 py-1 rounded-md text-sm bg-red-100 text-red-700"
-                >
-                  Reset
-                </button>
-              </div>
-            </div>
-          </div>
+        <select
+          className="border rounded-sm p-1 border-slate-400 text-sm"
+          value={filters.platform}
+          onChange={(e) =>
+            setFilters({ ...filters, platform: e.target.value })
+          }
+        >
+          <option value="">Platform</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+          <option value="linkedin">Linkedin</option>
+        </select>
+
+        <button
+          disabled={loading}
+          onClick={applyFilters}
+          className="border px-3 py-1 rounded-md text-sm bg-blue-50"
+        >
+          {!loading ? "Apply Filters" : "Filtering..."}
+        </button>
+
+        <button
+          onClick={resetFilters}
+          className="border px-3 py-1 rounded-md text-sm bg-red-100 text-red-700"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
 
           <Fricc
             followers={followers}
@@ -195,52 +191,50 @@ const Dashboard = () => {
             conversions={conversions}
           />
 
-          {/* first chart set of 2 */}
-          <div className="flex gap-5 h-[60vh] m-5">
-            <div className="bg-blue-200 w-1/2  p-5">
-              {(filteredData.length > 0 ? filteredData : data).length > 0 && (
-                <ReachImpChart
-                  data={filteredData.length > 0 ? filteredData : data}
-                />
-              )}
-            </div>
-            <div className="bg-blue-200 w-1/2 p-5">
-              <div className="bg-white rounded-lg ">
-                {(filteredData.length > 0 ? filteredData : data).length > 0 && (
-                  <CampainTypeChart
-                    data={filteredData.length > 0 ? filteredData : data}
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* second chart set of 2 */}
-          <div className="flex gap-5 h-[60vh]  m-5">
-            <div className="bg-blue-200 w-1/2  p-5">
-              {(filteredData.length > 0 ? filteredData : data).length > 0 && (
-                <RevinueChart
-                  data={filteredData.length > 0 ? filteredData : data}
-                />
-              )}
-            </div>
-            <div className="bg-blue-200 w-1/2 p-5">
-              <div className="bg-white rounded-lg ">
-                {(filteredData.length > 0 ? filteredData : data).length > 0 && (
-                  <Rbchart
-                    data={filteredData.length > 0 ? filteredData : data}
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* <div>
-            jhgdfl
-          </div> */}
+          {/* First chart row */}
+    <div className="flex flex-col lg:flex-row gap-5 m-5">
+      <div className="bg-blue-200 w-full lg:w-1/2 p-5  rounded-md">
+        {(filteredData.length > 0 ? filteredData : data).length > 0 && (
+          <ReachImpChart
+            data={filteredData.length > 0 ? filteredData : data}
+          />
+        )}
+      </div>
+      <div className="bg-blue-200 w-full lg:w-1/2 p-5 rounded-md">
+        <div className="bg-white rounded-lg h-full">
+          {(filteredData.length > 0 ? filteredData : data).length > 0 && (
+            <CampainTypeChart
+              data={filteredData.length > 0 ? filteredData : data}
+            />
+          )}
         </div>
       </div>
     </div>
+
+    {/* Second chart row */}
+    <div className="flex flex-col lg:flex-row gap-5 m-5">
+      <div className="bg-blue-200 w-full lg:w-1/2 p-5 rounded-md">
+        {(filteredData.length > 0 ? filteredData : data).length > 0 && (
+          <RevinueChart
+            data={filteredData.length > 0 ? filteredData : data}
+          />
+        )}
+      </div>
+      <div className="bg-blue-200 w-full lg:w-1/2 p-5 rounded-md">
+        <div className="bg-white pb-10 px-2 rounded-lg h-full">
+          {(filteredData.length > 0 ? filteredData : data).length > 0 && (
+            <Rbchart
+              data={filteredData.length > 0 ? filteredData : data}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* Footer */}
+    <Footer />
+  </div>
+</div>
   );
 };
 

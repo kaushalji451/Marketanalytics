@@ -8,10 +8,10 @@ const Login = () => {
 
   return (
     <div>
-      <section className="bg-gray-100">
+      <section className="bg-gray-200">
         <Navbar />
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[90vh] lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 text-black dark:border-gray-700">
+          <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 text-black border border-slate-300">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <div className="flex justify-between mb-4 border-slate-400 border items-center rounded-lg ">
                 <button

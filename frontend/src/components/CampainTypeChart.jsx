@@ -56,19 +56,19 @@ const CampainTypeChart = ({data}) => {
     }
   }, [data]);
   return (
-    <div className="w-full  rounded-lg flex justify-center items-center py-6">
+    <div className="w-full  h-full rounded-lg flex justify-center items-center py-6">
       <div>
-        <h2 className="text-xl font-bold mb-4 text-center">
+        <h2 className="text-xl font-bold mb-4 text-center min-lg:pb-10 ">
           Campaign Type Distribution
         </h2>
-        <PieChart width={400} height={300}>
+        <PieChart width={420} height={320}>
           <Pie
             data={pieData}
             cx="50%"
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={120}
+            outerRadius={140}
             fill="#8884d8"
             dataKey="value"
           >
